@@ -1,11 +1,28 @@
 function calculateWords(chapterOfABook) {
   const wordCount = {};
-
-  // Write your code in here
+  //Remove all of the punctuation (e.g. ".", ",", "!", "?") to tidy up the results
+  let str = chapterOfABook.replace(/['?"\è\-_]/g, "");
+  let splitStr = str.split(" ");
+  splitStr.forEach((v, i) => {
+    if (v !== "" && !Object.keys(wordCount).includes(v.toUpperCase())) {
+      wordCount[v] = 0;
+    }
+  });
+  let keyStr = Object.keys(wordCount);
+  for (let key in wordCount) {
+    splitStr.forEach(element => {
+      if (element.toUpperCase() === key.toUpperCase()) {
+        wordCount[key] += 1;
+      }
+    });
+  }
 
   return wordCount;
 }
 
+console.log(
+  calculateWords("A stringè SOME with,  some? S punctuation- s A a s some a")
+);
 calculateWords(getDraculaChapterOne());
 
 /**                            */
