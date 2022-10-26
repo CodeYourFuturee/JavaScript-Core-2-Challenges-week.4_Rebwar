@@ -23,6 +23,7 @@ function calculateWords(chapterOfABook) {
 console.log(
   calculateWords("A stringè SOME with,  some? S punctuation- s A a s some a")
 );
+
 calculateWords(getDraculaChapterOne());
 
 /**                            */
@@ -55,7 +56,29 @@ test("Example task string", calculateWords("You and me and You"), {
   and: 2,
   me: 1,
 });
-
+test(
+  "Remove all of the punctuation (e.g. ', \", è, '?',_,-) to tidy up the results",
+  calculateWords("A stringè with,  some? punctuation-  Aè  some_ "),
+  {
+    A: 2,
+    string: 1,
+    "with,": 1,
+    some: 2,
+    punctuation: 1,
+  }
+);
+test(
+  "Ignore the case of the words to find more unique words. e.g. (A === a, Hello === hello)",
+  calculateWords("A stringè SOME with,  some? S punctuation- s A a s some a"),
+  {
+    A: 4,
+    string: 1,
+    SOME: 3,
+    "with,": 1,
+    S: 3,
+    punctuation: 1,
+  }
+);
 function test(test_name, actual, expected) {
   let status;
   if (shallowEqual(actual, expected)) {
