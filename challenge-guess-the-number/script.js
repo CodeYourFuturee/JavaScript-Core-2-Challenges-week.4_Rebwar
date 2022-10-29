@@ -34,6 +34,25 @@
 // document.querySelector(".btnGuess").addEventListener("click", guessNumber);
 // document.addEventListener("keypress", keyBoardEvents);
 //💫💫💫
+const jsConfetti = new JSConfetti();
+async function myConfetti() {
+  await jsConfetti.addConfetti({
+    emojis: ["🎉", "🥳", "👏", "⚡", "🎈", "🍉"],
+    emojiSize: 100,
+    confettiNumber: 300,
+    confettiColors: [
+      "#ff0a54",
+      "#ff477e",
+      "#ff7096",
+      "#ff85a1",
+      "#fbb1bd",
+      "#f9bec7",
+    ],
+  });
+  return confetti();
+}
+
+//💫💫💫
 let randomNumber = Math.floor(Math.random() * 100 + 1);
 let score = 7;
 let highscore = 0;
@@ -55,8 +74,7 @@ function guessNumber() {
     document.querySelector(
       ".final-output "
     ).textContent = `  ${randomNumber} is correct, You Win!!!`;
-
-    document.querySelector("body").style.backgroundColor = "#60b347";
+    myConfetti();
 
     if (score > highscore) {
       highscore = score;
