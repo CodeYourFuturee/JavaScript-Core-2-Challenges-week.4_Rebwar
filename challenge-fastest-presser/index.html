@@ -12,12 +12,54 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Fastest Presser Game</title>
   </head>
 
   <body>
-    <div class="content"></div>
-  </body>
+    <!-- <button class="build">Publish Site</button> -->
+    <div class="container min-vw-100 min-vh-100 text-center">
+      <header>
+        <h1>Fastest Presser Game</h1>
+        <div class="count"></div>
+        <form id="form" action="">
+          <div
+            class="input-group mb-3 d-flex align-items-center justify-content-center"
+            id="input_span"
+          >
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">⏳</span>
+            </div>
+            <input type="number" id="timerInput" />
+          </div>
+          <!-- <div class="row">
+            <div class="col">
+              <input type="number" id="timerInput" />
+            </div>
+          </div> -->
+          <button id="startButton" type="submit" class="btn btn-primary">
+            Start game!
+          </button>
+        </form>
+      </header>
+      <div class="row player-div">
+        <div class="col player" id="player_one">
+          <h2>Player One</h2>
+          <p>Press "A" to win</p>
+          <p id="score_playerOne">Score: 0</p>
+        </div>
+        <div class="col player" id="player_two">
+          <h2>Player Two</h2>
+          <p>Press "L" to win</p>
+          <p id="score_playerTwo">Score: 0</p>
+        </div>
+      </div>
+      <h1 class="text-center wonText">Players Tied!</h1>
+    </div>
+    <!-- <button class="build">Publish Site</button> -->
 
-  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="script.js" type="module"></script>
+    <!-- <script src="script.js"></script> -->
+  </body>
 </html>

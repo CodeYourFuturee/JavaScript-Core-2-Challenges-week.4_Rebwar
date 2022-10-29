@@ -51,7 +51,6 @@ function setWinner() {
 
 // Setup the keyboard events for when the player presses S or L
 function keyBoardEvents(e) {
-  console.log(e.keyCode);
   if (gameRunning) {
     if (e.keyCode === 115) {
       playerOneScore++;
